@@ -1,48 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Sidecar">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#F3F7FF"/><stop offset="1" stop-color="#DFE9FA"/>
+    <radialGradient id="bB" cx="0.33" cy="0.24" r="0.98">
+      <stop offset="0"    stop-color="#7CCBFF"/>
+      <stop offset="0.30" stop-color="#3399F6"/>
+      <stop offset="0.70" stop-color="#1560DC"/>
+      <stop offset="1"    stop-color="#09349F"/>
+    </radialGradient>
+    <radialGradient id="fB" cx="0.33" cy="0.20" r="0.95">
+      <stop offset="0"    stop-color="#FFFFFF"/>
+      <stop offset="0.40" stop-color="#E8F5FF"/>
+      <stop offset="0.80" stop-color="#BCDEF9"/>
+      <stop offset="1"    stop-color="#94C7EF"/>
+    </radialGradient>
+    <linearGradient id="bar" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0"   stop-color="#86D4FF"/>
+      <stop offset="0.45" stop-color="#2E9BF5"/>
+      <stop offset="1"   stop-color="#1060D8"/>
     </linearGradient>
-    <linearGradient id="main" x1="0.2" y1="0" x2="0.8" y2="1">
-      <stop offset="0" stop-color="#6BA4FF"/><stop offset="0.5" stop-color="#2E6FE0"/><stop offset="1" stop-color="#1748A8"/>
+    <linearGradient id="gl" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.15"/>
+      <stop offset="1"   stop-color="#FFFFFF" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="side" x1="0.2" y1="0" x2="0.8" y2="1">
-      <stop offset="0" stop-color="#B9E4FF"/><stop offset="0.5" stop-color="#5AB0F5"/><stop offset="1" stop-color="#2C79D6"/>
-    </linearGradient>
-    <linearGradient id="sideEdge" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1F5EB8"/><stop offset="1" stop-color="#123C7E"/>
-    </linearGradient>
-    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
-      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0B2A63" flood-opacity="0.28"/>
-    </filter>
-    <filter id="soft2" x="-40%" y="-40%" width="180%" height="180%">
-      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#08214D" flood-opacity="0.34"/>
-    </filter>
-    <filter id="inset">
-      <feOffset dx="0" dy="1.5"/>
-      <feGaussianBlur stdDeviation="1.2"/>
-      <feComposite operator="out" in2="SourceAlpha"/>
-      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0.25  0 0 0 0 0.5  0 0 0 0.35 0"/>
-      <feComposite operator="in" in2="SourceAlpha"/>
-      <feComposite operator="over" in2="SourceGraphic"/>
+    <filter id="lift" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#062B6B" flood-opacity="0.32"/>
     </filter>
   </defs>
-  <rect width="128" height="128" rx="26" fill="url(#bg)"/>
-  <g filter="url(#soft)">
-    <rect x="18" y="26" width="60" height="76" rx="13" fill="url(#main)"/>
-    <rect x="19.5" y="27.5" width="57" height="73" rx="11.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="1.5"/>
+
+  <g filter="url(#lift)">
+    <!-- BACK: inflated rounded-square panel with a short tail bottom-left -->
+    <path fill="url(#bB)" d="
+      M46 15
+      C25 15 13 28 13 48
+      C13 70 20 88 30 100
+      L20 112
+      C18 115 21 118 24 116
+      L42 105
+      C44 106 47 106 50 106
+      C69 106 82 87 82 62
+      C82 35 68 15 46 15 Z"/>
+    <path fill="url(#gl)" opacity="0.45" d="
+      M44 16 C24 16 13 28 13 46 C13 58 16 70 21 80
+      C22 62 27 44 38 34 C47 26 60 22 72 24
+      C64 18 54 16 44 16 Z"/>
+
+    <!-- FRONT: chat bubble with tail bottom-right -->
+    <path fill="url(#fB)" d="
+      M80 40
+      C64 40 55 51 55 66
+      C55 78 61 88 70 93
+      L84 112
+      C86 115 90 113 90 109
+      L91 96
+      C100 94 108 87 111 78
+      C116 62 110 44 96 41
+      C91 40 85 40 80 40 Z"/>
+    <path fill="url(#gl)" opacity="0.5" d="
+      M80 40 C64 40 55 51 55 66 C55 78 60 87 68 92
+      C66 78 70 60 79 53 C87 47 98 46 106 51
+      C102 44 92 40 80 40 Z"/>
+
+    <g>
+      <rect x="67" y="54" width="34" height="9" rx="4.5" fill="url(#bar)"/>
+      <rect x="68.6" y="55.2" width="30.8" height="3" rx="1.5" fill="#C6EAFF" opacity="0.8"/>
+      <rect x="67" y="68" width="34" height="9" rx="4.5" fill="url(#bar)"/>
+      <rect x="68.6" y="69.2" width="30.8" height="3" rx="1.5" fill="#C6EAFF" opacity="0.8"/>
+      <rect x="67" y="82" width="20" height="9" rx="4.5" fill="url(#bar)"/>
+      <rect x="68.6" y="83.2" width="16.8" height="3" rx="1.5" fill="#C6EAFF" opacity="0.8"/>
+    </g>
   </g>
-  <g filter="url(#soft2)">
-    <rect x="54" y="42" width="56" height="48" rx="12" fill="url(#side)"/>
-    <rect x="54" y="78" width="56" height="12" rx="6" fill="url(#sideEdge)"/>
-    <rect x="55.5" y="43.5" width="53" height="45" rx="10.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="1.5"/>
-  </g>
-  <g filter="url(#inset)">
-    <rect x="64" y="54" width="24" height="5" rx="2.5" fill="#0B3C86" opacity="0.6"/>
-    <rect x="64" y="65" width="32" height="5" rx="2.5" fill="#0B3C86" opacity="0.45"/>
-    <rect x="64" y="76" width="16" height="5" rx="2.5" fill="#0B3C86" opacity="0.6"/>
-  </g>
-  <path d="M48 86 L42 94" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.95"/>
-  <circle cx="40" cy="97" r="4.5" fill="#FFFFFF"/>
-  <circle cx="40" cy="97" r="4.5" fill="none" stroke="#1748A8" stroke-opacity="0.35"/>
 </svg>
