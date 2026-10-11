@@ -24,15 +24,15 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "chat-assistant" is now active!');
+	console.log('Congratulations, your extension "sidecar" is now active!');
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('chat-assistant.open', () => {
+	const disposable = vscode.commands.registerCommand('sidecar.open', () => {
 		const panel = vscode.window.createWebviewPanel(
 			'chatAssistant',
-			'Chat Assistant',
+			'Sidecar',
 			vscode.ViewColumn.Beside,
 			{
 				enableScripts: true,
@@ -106,7 +106,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(disposable);
 
 	// Command to set Gemini API Key
-	const setApiKeyDisposable = vscode.commands.registerCommand('chat-assistant.setGeminiApiKey', async () => {
+	const setApiKeyDisposable = vscode.commands.registerCommand('sidecar.setGeminiApiKey', async () => {
 		const apiKey = await vscode.window.showInputBox({
 			prompt: 'Enter your Gemini API Key',
 			ignoreFocusOut: true,
@@ -138,7 +138,7 @@ async function readFilesFromWorkspace(filePaths: string[]): Promise<{ [filename:
 			result[relPath] = Buffer.from(fileData).toString('utf8');
 		} catch (e: any) {
 			const errorMsg = e.message || String(e);
-			console.error(`Chat Assistant: Failed to read file '${absPathStr}'. Error: ${errorMsg}`);
+			console.error(`Sidecar: Failed to read file '${absPathStr}'. Error: ${errorMsg}`);
 			result[relPath] = `[Error: Could not read file '${relPath}'. Full path attempted: ${absPathStr}. Details: ${errorMsg}]`;
 		}
 	}

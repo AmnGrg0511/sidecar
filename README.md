@@ -1,4 +1,4 @@
-# Chat Assistant
+# Sidecar
 
 VS Code extension that brings an in-editor chat assistant for quick guidance, summaries, and code help. Built with a React webview UI and a clean command surface for fast access.
 
@@ -8,7 +8,7 @@ VS Code extension that brings an in-editor chat assistant for quick guidance, su
 - Lightweight TypeScript + esbuild bundle
 
 ## Developer Notes
-- Commands: `chat-assistant.open`, `chat-assistant.setGeminiApiKey`
+- Commands: `sidecar.open`, `sidecar.setGeminiApiKey`
 - Webview UI lives in `webview-ui/`
 
 ## Tech Stack
