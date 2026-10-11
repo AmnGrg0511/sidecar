@@ -1,27 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Sidecar">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
   <defs>
-    <linearGradient id="sidecar-main" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#4C8DFF"/>
-      <stop offset="1" stop-color="#1F5FD0"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F3F7FF"/><stop offset="1" stop-color="#DFE9FA"/>
     </linearGradient>
-    <linearGradient id="sidecar-side" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#8FD3FF"/>
-      <stop offset="1" stop-color="#3E8BE8"/>
+    <linearGradient id="main" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#6BA4FF"/><stop offset="0.5" stop-color="#2E6FE0"/><stop offset="1" stop-color="#1748A8"/>
     </linearGradient>
+    <linearGradient id="side" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#B9E4FF"/><stop offset="0.5" stop-color="#5AB0F5"/><stop offset="1" stop-color="#2C79D6"/>
+    </linearGradient>
+    <linearGradient id="sideEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1F5EB8"/><stop offset="1" stop-color="#123C7E"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0B2A63" flood-opacity="0.28"/>
+    </filter>
+    <filter id="soft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#08214D" flood-opacity="0.34"/>
+    </filter>
+    <filter id="inset">
+      <feOffset dx="0" dy="1.5"/>
+      <feGaussianBlur stdDeviation="1.2"/>
+      <feComposite operator="out" in2="SourceAlpha"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0.25  0 0 0 0 0.5  0 0 0 0.35 0"/>
+      <feComposite operator="in" in2="SourceAlpha"/>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
   </defs>
-
-  <!-- main editor panel -->
-  <rect x="18" y="24" width="62" height="80" rx="12" fill="url(#sidecar-main)"/>
-
-  <!-- docked sidecar panel -->
-  <rect x="56" y="40" width="54" height="48" rx="11" fill="url(#sidecar-side)"/>
-
-  <!-- chat lines inside the sidecar -->
-  <rect x="66" y="53" width="26" height="5" rx="2.5" fill="#0F3C8C" opacity="0.55"/>
-  <rect x="66" y="64" width="34" height="5" rx="2.5" fill="#0F3C8C" opacity="0.4"/>
-  <rect x="66" y="75" width="18" height="5" rx="2.5" fill="#0F3C8C" opacity="0.55"/>
-
-  <!-- grounding link back to the main panel -->
-  <path d="M50 84 L44 92" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
-  <circle cx="42" cy="95" r="4.5" fill="#FFFFFF"/>
+  <rect width="128" height="128" rx="26" fill="url(#bg)"/>
+  <g filter="url(#soft)">
+    <rect x="18" y="26" width="60" height="76" rx="13" fill="url(#main)"/>
+    <rect x="19.5" y="27.5" width="57" height="73" rx="11.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="1.5"/>
+  </g>
+  <g filter="url(#soft2)">
+    <rect x="54" y="42" width="56" height="48" rx="12" fill="url(#side)"/>
+    <rect x="54" y="78" width="56" height="12" rx="6" fill="url(#sideEdge)"/>
+    <rect x="55.5" y="43.5" width="53" height="45" rx="10.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="1.5"/>
+  </g>
+  <g filter="url(#inset)">
+    <rect x="64" y="54" width="24" height="5" rx="2.5" fill="#0B3C86" opacity="0.6"/>
+    <rect x="64" y="65" width="32" height="5" rx="2.5" fill="#0B3C86" opacity="0.45"/>
+    <rect x="64" y="76" width="16" height="5" rx="2.5" fill="#0B3C86" opacity="0.6"/>
+  </g>
+  <path d="M48 86 L42 94" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.95"/>
+  <circle cx="40" cy="97" r="4.5" fill="#FFFFFF"/>
+  <circle cx="40" cy="97" r="4.5" fill="none" stroke="#1748A8" stroke-opacity="0.35"/>
 </svg>
